@@ -57,6 +57,7 @@ namespace Engine.Mathematics
         {
             return new Eng_Point2D(p.X * s, p.Y * s);
         }
+
         #region Overload Operators
         #region Complier Warning Fix
         // the following two methods are to remove the CS0660 and CS0661 compiler warnings

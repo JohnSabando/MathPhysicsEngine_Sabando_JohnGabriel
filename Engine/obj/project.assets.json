@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jsabando1\\source\\repos\\MathPhysicsEngine_Sabando_JohnGabriel\\Engine\\Engine.csproj",
+      "projectUniqueName": "C:\\Users\\jsabando1\\Source\\Repos\\1222-a01-lab01-JohnSabando\\MathPhysicsEngine_Sabando_JohnGabriel\\Engine\\Engine.csproj",
       "projectName": "Engine",
-      "projectPath": "C:\\Users\\jsabando1\\source\\repos\\MathPhysicsEngine_Sabando_JohnGabriel\\Engine\\Engine.csproj",
+      "projectPath": "C:\\Users\\jsabando1\\Source\\Repos\\1222-a01-lab01-JohnSabando\\MathPhysicsEngine_Sabando_JohnGabriel\\Engine\\Engine.csproj",
       "packagesPath": "C:\\Users\\jsabando1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jsabando1\\source\\repos\\MathPhysicsEngine_Sabando_JohnGabriel\\Engine\\obj\\",
+      "outputPath": "C:\\Users\\jsabando1\\Source\\Repos\\1222-a01-lab01-JohnSabando\\MathPhysicsEngine_Sabando_JohnGabriel\\Engine\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
