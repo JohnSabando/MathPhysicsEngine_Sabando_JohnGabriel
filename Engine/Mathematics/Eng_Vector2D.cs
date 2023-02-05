@@ -32,29 +32,39 @@ namespace Engine.Mathematics
         // 2.a - Magnitude of a 2D vector; DO NOT use Math.Pow()
         public double Magnitude(double value1,double value2)
         {
-            double magnitute;
-            magnitute = Math.Sqrt((value1*value1)+(value2*value2));
-            return magnitute;
+            double magnitude;
+            magnitude = Math.Sqrt((value1*value1)+(value2*value2));
+            return magnitude;
         }//end of Magnitude
 
         //2.b - The Dot Product of two 2D vectors.
-        public double DotProduct(Eng_Vector2D b)
+        public double DotProduct(Eng_Vector2D b, Eng_Vector2D a)
         {
-            return 0;
+            double product = 0;
+            product = (a.X * b.X) + (a.Y * b.Y);
+            return product;
         }//end of DotProduct
 
         //2.c – The angle between two 2D vectors.
         //      [MUST use the Functions.ToDegrees() method to return the angle in degrees]
-        public double AngleBetweenVectors(Eng_Vector2D b)
+        public double AngleBetweenVectors(Eng_Vector2D b, Eng_Vector2D a)
         {
-            return 0;
+            double angle,product,magnitude;
+            product = (a.X * b.X) + (a.Y * b.Y);
+            magnitude = Math.Sqrt((a.X * a.X) + (a.Y * a.Y)) * Math.Sqrt((b.X * b.X)+(b.Y * b.Y));
+            angle = Math.Acos(product / magnitude);
+            return Functions.ToDegrees(angle);
         }//end of AngleBetweenVectors
 
         //2.d – To Normalize a 2D vector.
-        public void Normalize()
+        public void Normalize(Eng_Vector2D a)
         {
-			
-	}//end of Normalize
+            double length = 0;
+            length = Math.Sqrt((a.X * a.X)+(a.Y * a.Y));
+            Eng_Vector2D normalize = new Eng_Vector2D();
+            normalize.X = (a.X / length);
+            normalize.Y = (a.Y / length);
+	    }//end of Normalize
         #endregion
 
         #region Overload Operators
@@ -75,36 +85,54 @@ namespace Engine.Mathematics
         //3.a - Adding two 2D vectors.
 	public static Eng_Vector2D operator +(Eng_Vector2D a, Eng_Vector2D b)
         {
-            return null;
+            Eng_Vector2D result = new Eng_Vector2D();
+            result.X = a.X + b.X;
+            result.Y = a.Y + b.Y;
+            return result;
         }//eom
 
 	//3.b - Subtracting two 2D vectors.
         public static Eng_Vector2D operator -(Eng_Vector2D a, Eng_Vector2D b)
         {
-            return null;
+            Eng_Vector2D result= new Eng_Vector2D();
+            result.X = a.X- b.X;
+            result.Y = a.Y - b.Y;
+            return result;
         }//eom
 
         //3.c.1 - Multiplying a 2D vector by a scalar (s * v)
         public static Eng_Vector2D operator *(double s, Eng_Vector2D v)
         {
-            return null;
+            Eng_Vector2D result = new Eng_Vector2D();
+            result.X = s * v.X;
+            result.Y = s * v.Y;
+            return result;
         }//eom
 
         //3.c.2 - Multiplying a 2D vector by a scalar (v * s)
         public static Eng_Vector2D operator *(Eng_Vector2D v, double s)
         {
-            return null;
+            Eng_Vector2D result = new Eng_Vector2D();
+            result.X = v.X * s;
+            result.Y = v.Y * s;
+            return result;
         }//eom
         
 	//3.d - Equality of two 2D vectors.
 	public static bool operator ==(Eng_Vector2D a, Eng_Vector2D b)
         {
+            if (a != b)
+                return false;
+            else
             return true;
         }//eom	 
 
         //3.e - Inequality of two 2D vectors
         public static bool operator !=(Eng_Vector2D a, Eng_Vector2D b)
         {
+            if (a == b)
+                return false;
+            else
             return true;
         }//eom
         #endregion
