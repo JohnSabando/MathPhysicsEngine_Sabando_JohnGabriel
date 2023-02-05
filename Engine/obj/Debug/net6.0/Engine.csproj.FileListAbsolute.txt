@@ -22,3 +22,15 @@ C:\Users\jsabando1\Source\Repos\1222-a01-lab01-JohnSabando\MathPhysicsEngine_Sab
 C:\Users\jsabando1\Source\Repos\1222-a01-lab01-JohnSabando\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\refint\Engine.dll
 C:\Users\jsabando1\Source\Repos\1222-a01-lab01-JohnSabando\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\Engine.pdb
 C:\Users\jsabando1\Source\Repos\1222-a01-lab01-JohnSabando\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\ref\Engine.dll
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\bin\Debug\net6.0\Engine.deps.json
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\bin\Debug\net6.0\Engine.dll
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\bin\Debug\net6.0\Engine.pdb
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\Engine.csproj.AssemblyReference.cache
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\Engine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\Engine.AssemblyInfoInputs.cache
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\Engine.AssemblyInfo.cs
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\Engine.csproj.CoreCompileInputs.cache
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\Engine.dll
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\refint\Engine.dll
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\Engine.pdb
+C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine\obj\Debug\net6.0\ref\Engine.dll

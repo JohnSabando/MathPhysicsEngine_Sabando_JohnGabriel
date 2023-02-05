@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Engine.Tests
-build_property.ProjectDir = C:\Users\zeroz\Source\Repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine.Tests\
+build_property.ProjectDir = C:\Users\zeroz\source\repos\MathPhysicsEngine_Sabando_JohnGabriel\Engine.Tests\

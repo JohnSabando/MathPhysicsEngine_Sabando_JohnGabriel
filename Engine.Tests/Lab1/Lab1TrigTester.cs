@@ -26,7 +26,7 @@ namespace Engine.Tests.Lab1
             // Instructor Data - MUST NOT DELETE OR MODIFY
             TestCase(30, 0.5236),
             // Student Data - MUST Change
-            TestCase(30, 0.5236)
+            TestCase(90, 1.5708)
         ]
 
         public void TestToRadians(double degrees, double expected)
@@ -44,7 +44,7 @@ namespace Engine.Tests.Lab1
             // Instructor Data - MUST NOT DELETE OR MODIFY
             TestCase(0.6283, 35.9989),
             // Student Data - MUST CHANGE
-            TestCase(0.6283,35.9989)
+            TestCase(2.5,143.2394)
         ]
 
         public void TestToDegrees(double radians, double expected)
@@ -71,9 +71,13 @@ namespace Engine.Tests.Lab1
         public void TestCalculateAdjacentOpposite(double degrees, double hypotenuse, double adjacent, double opposite)
         {
             // Perform test
-            
+            Tuple<double,double> actual = Functions.CalculateAdjacentOpposite(Functions.ToRadians(degrees), hypotenuse);
             // Assert
-            
+            Assert.Multiple(() =>
+            {
+                Assert.That(Math.Round(actual.Item1, 4), Is.EqualTo(adjacent));
+                Assert.That(Math.Round(actual.Item2, 4), Is.EqualTo(opposite));
+            });
         }//end of TestCalculateAdjacentOpposite
 
         //2.d - Test 1.d - A method to solve a right triangle given an angle in degrees and the side opposite;
@@ -86,15 +90,19 @@ namespace Engine.Tests.Lab1
             // Instructor Data - MUST NOT DELETE OR MODIFY
             TestCase(25, 6, 12.867, 14.1972),
             // Student Data - MUST CHANGE
-            TestCase(25, 6, 12.867, 14.1972)
+            TestCase(60,12,6.9282,13.8564)
         ]
 
         public void TestCalculateAdjacentHypotenuse(double degrees, double opposite, double adjacent, double hypotenuse)
         {
             // Perform test
-            
+            Tuple<double, double> actual = Functions.CalculateAdjacentHypotenuse(Functions.ToRadians(degrees), opposite);
             // Assert
-            
+            Assert.Multiple(() =>
+            {
+                Assert.That(Math.Round(actual.Item1, 4), Is.EqualTo(adjacent));
+                Assert.That(Math.Round(actual.Item2, 4), Is.EqualTo(hypotenuse));
+            });
         }//end of TestCalculateAdjacentHypotenuse
 
         //2.e - Test 1.e - A method to solve a right triangle given an angle in degrees and the side adjacent;
@@ -107,15 +115,20 @@ namespace Engine.Tests.Lab1
             // Instructor Data - MUST NOT DELETE OR MODIFY
             TestCase(25, 6, 2.7978, 6.6203),
             // Student Data - MUST CHANGE
-            TestCase(25, 6, 2.7978, 6.6203)
+            TestCase(55,10,14.2815,17.4345)
         ]
 
         public void TestCalculateOppositeHypotenuse(double degrees, double adjacent, double opposite, double hypotenuse)
         {
             // Perform test
-            
+            Tuple<double, double> actual = Functions.CalculateOppositeHypotenuse(Functions.ToRadians(degrees),adjacent);
             // Assert
-            
+            Assert.Multiple(() =>
+            {
+                Assert.That(Math.Round(actual.Item1, 4), Is.EqualTo(opposite));
+                Assert.That(Math.Round(actual.Item2, 4), Is.EqualTo(hypotenuse));
+            });
+
         }//end of TestCalculateOppositeHypotenuse
 
         //2.f - Test 1.f - A method to solve a right triangle given side opposite and side adjacent;
@@ -128,15 +141,19 @@ namespace Engine.Tests.Lab1
             // Instructor Data - MUST NOT DELETE OR MODIFY
             TestCase(3, 5, 5.8310, 59.0362),
             // Student Data - MUST CHANGE
-            TestCase(3, 5, 5.8310, 59.0362)
+            TestCase(35,15,38.0789,23.1986)
         ]
 
         public void TestCalculateHypotenuseTheta(double adjacent, double opposite, double hypotenuse, double degrees)
         {
             // Perform test
-            
+            Tuple<double, double> actual = Functions.CalculateHypotenuseTheta(opposite, adjacent);
             // Assert
-            
+            Assert.Multiple(() =>
+            {
+                Assert.That(Math.Round(actual.Item1, 4), Is.EqualTo(hypotenuse));
+                Assert.That(Math.Round(Functions.ToDegrees(actual.Item2),4), Is.EqualTo(degrees));
+            });
         }//end of TestCalculateHypotenuseTheta
 
         //2.g - Test 1.g - A method to solve a right triangle given side opposite and hypotenuse;
@@ -149,15 +166,20 @@ namespace Engine.Tests.Lab1
             // Instructor Data - MUST NOT DELETE OR MODIFY
             TestCase(3, 4, 2.6458, 48.5904),
             // Student Data - MUST CHANGE
-            TestCase(3, 4, 2.6458, 48.5904)
+            TestCase(10,15,11.1803,41.8103)
         ]
 
         public void TestCalculateAdjacentTheta(double opposite, double hypotenuse, double adjacent, double degrees)
         {
             // Perform test
-            
+            Tuple<double, double> actual = Functions.CalculateAdjacentTheta(opposite, hypotenuse);
             // Assert
-            
+            Assert.Multiple(() =>
+            {
+                Assert.That(Math.Round(actual.Item1, 4), Is.EqualTo(adjacent));
+                Assert.That(Math.Round(Functions.ToDegrees(actual.Item2), 4), Is.EqualTo(degrees));
+            });
+
         }//end of TestCalculateAdjacentTheta
 
         //2.h - Test 1.h - A method to solve a right triangle given side adjacent and hypotenuse;
@@ -170,15 +192,19 @@ namespace Engine.Tests.Lab1
             // Instructor Data - MUST NOT DELETE OR MODIFY
             TestCase(4, 6, 4.4721, 48.1897),
             // Student Data - MUST CHANGE
-            TestCase(4, 6, 4.4721, 48.1897)
+            TestCase(12,20,16,53.1301)
         ]
 
         public void TestCalculateOppositeTheta(double adjacent, double hypotenuse, double opposite, double degrees)
         {
             // Perform test
-            
+            Tuple<double, double> actual = Functions.CalculateOppositeTheta(adjacent, hypotenuse);
             // Assert
-            
+            Assert.Multiple(() =>
+            {
+                Assert.That(Math.Round(actual.Item1, 4), Is.EqualTo(opposite));
+                Assert.That(Math.Round(Functions.ToDegrees(actual.Item2), 4), Is.EqualTo(degrees));
+            });
         }//end of TestCalculateOppositeTheta
     }//eoc
 }//eon

@@ -47,8 +47,8 @@ namespace Engine.Mathematics
         public static Tuple<double,double> CalculateAdjacentOpposite(double theta, double hypotenuse)
         {
             double adjacent, opposite;
-            adjacent = theta * hypotenuse;
-            opposite = theta * hypotenuse;
+            adjacent = Math.Cos(theta) * hypotenuse;
+            opposite = Math.Sin(theta) * hypotenuse;
             return new Tuple<double, double>(adjacent, opposite);
         }//eom
         
@@ -57,8 +57,8 @@ namespace Engine.Mathematics
          public static Tuple<double, double> CalculateAdjacentHypotenuse(double theta, double opposite)
         {
             double hypotenuse,adjacent;
-            hypotenuse = opposite / theta;
-            adjacent = opposite / theta;
+            hypotenuse = opposite / Math.Sin(theta);
+            adjacent = opposite / Math.Tan(theta);
             return new Tuple<double, double>(adjacent, hypotenuse);
         }//eom
 
@@ -67,8 +67,8 @@ namespace Engine.Mathematics
         public static Tuple<double, double> CalculateOppositeHypotenuse(double theta, double adjacent)
         {
             double opposite, hypotenuse;
-            opposite = theta * adjacent;
-            hypotenuse = adjacent / theta;
+            opposite = Math.Tan(theta) * adjacent;
+            hypotenuse = adjacent/ Math.Cos(theta);
             return new Tuple<double, double>(opposite, hypotenuse);
         }//eom
 
@@ -77,8 +77,8 @@ namespace Engine.Mathematics
         public static Tuple<double, double> CalculateHypotenuseTheta(double opposite, double adjacent)
         {
             double hypotenuse, degrees;
-            hypotenuse = (opposite * opposite) + (adjacent * adjacent);
-            degrees = opposite / adjacent;
+            hypotenuse = Math.Sqrt((opposite * opposite) + (adjacent * adjacent));
+            degrees = Math.Atan(opposite / adjacent);
             return new Tuple<double, double>(hypotenuse, degrees);
         }//eom
 
@@ -87,8 +87,8 @@ namespace Engine.Mathematics
         public static Tuple<double, double> CalculateAdjacentTheta(double opposite, double hypotenuse)
         {
             double adjacent, degrees;
-            adjacent = (hypotenuse * hypotenuse) - (opposite * opposite);
-            degrees = opposite / hypotenuse;
+            adjacent = Math.Sqrt((hypotenuse * hypotenuse) - (opposite * opposite));
+            degrees = Math.Asin(opposite / hypotenuse);
             return new Tuple<double, double>(adjacent, degrees);
         }//eom
 
@@ -97,8 +97,8 @@ namespace Engine.Mathematics
         public static Tuple<double, double> CalculateOppositeTheta(double adjacent, double hypotenuse)
         {
             double opposite, degrees;
-            opposite = (hypotenuse * hypotenuse) - (adjacent * adjacent);
-            degrees = adjacent / hypotenuse;
+            opposite = Math.Sqrt((hypotenuse * hypotenuse) - (adjacent * adjacent));
+            degrees = Math.Acos(adjacent / hypotenuse);
             return new Tuple<double, double>(opposite, degrees);
         }//eom
         #endregion

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Go5fs/UdIGuxSdJHJd4ksa5Bpsw2cUFHQ418NoQiHxKvcs7368eL3gfSQlGLlXNYX0E4K3HhSYfGrRPw5Yue1w==",
+  "dgSpecHash": "/+XM5bVetjD8eAG3i0z0PF8E6wv6MtfCw9wU1hQl/cgnwxD2EXbEg3hF6/g+zTy86SMYiHCkHJgMTg2jQ8mPMA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zeroz\\Source\\Repos\\MathPhysicsEngine_Sabando_JohnGabriel\\Engine.Tests\\Engine.Tests.csproj",
+  "projectFilePath": "C:\\Users\\zeroz\\source\\repos\\MathPhysicsEngine_Sabando_JohnGabriel\\Engine.Tests\\Engine.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zeroz\\.nuget\\packages\\microsoft.codecoverage\\17.4.1\\microsoft.codecoverage.17.4.1.nupkg.sha512",
     "C:\\Users\\zeroz\\.nuget\\packages\\microsoft.net.test.sdk\\17.4.1\\microsoft.net.test.sdk.17.4.1.nupkg.sha512",
