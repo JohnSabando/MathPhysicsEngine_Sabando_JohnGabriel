@@ -101,6 +101,7 @@ namespace Engine.Tests.Lab1
             Eng_Vector2D actual = new Eng_Vector2D(aX, aY);
             // Call the class method
             Eng_Vector2D expected = new Eng_Vector2D(expectedX, expectedY);
+            actual.Normalize();
             // Assert
             Assert.AreEqual(expectedX, Math.Round(actual.X, 4));
             Assert.AreEqual(expectedY, Math.Round(actual.Y, 4));

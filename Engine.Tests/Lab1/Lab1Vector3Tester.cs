@@ -102,6 +102,7 @@ namespace Engine.Tests.Lab1
             Eng_Vector3D actual = new Eng_Vector3D(vX, vY, vZ);
             // Perform the test
             Eng_Vector3D expected = new Eng_Vector3D(expectedX, expectedY, expectedZ);
+            actual.Normalize();
             // Assert
             Assert.AreEqual(expectedX, Math.Round(actual.X, 4));
             Assert.AreEqual(expectedY, Math.Round(actual.Y, 4));
