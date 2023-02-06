@@ -30,7 +30,7 @@ namespace Engine.Mathematics
         }
         #region Class Methods
         // 2.a - Magnitude of a 2D vector; DO NOT use Math.Pow()
-        public double Magnitude(double value1,double value2)
+        public static double Magnitude(double value1,double value2)
         {
             double magnitude;
             magnitude = Math.Sqrt((value1*value1)+(value2*value2));
@@ -38,7 +38,7 @@ namespace Engine.Mathematics
         }//end of Magnitude
 
         //2.b - The Dot Product of two 2D vectors.
-        public double DotProduct(Eng_Vector2D b, Eng_Vector2D a)
+        public static double DotProduct(Eng_Vector2D b, Eng_Vector2D a)
         {
             double product = 0;
             product = (a.X * b.X) + (a.Y * b.Y);
@@ -47,7 +47,7 @@ namespace Engine.Mathematics
 
         //2.c – The angle between two 2D vectors.
         //      [MUST use the Functions.ToDegrees() method to return the angle in degrees]
-        public double AngleBetweenVectors(Eng_Vector2D b, Eng_Vector2D a)
+        public static double AngleBetweenVectors(Eng_Vector2D b, Eng_Vector2D a)
         {
             double angle,product,magnitude;
             product = (a.X * b.X) + (a.Y * b.Y);
@@ -57,13 +57,14 @@ namespace Engine.Mathematics
         }//end of AngleBetweenVectors
 
         //2.d – To Normalize a 2D vector.
-        public void Normalize(Eng_Vector2D a)
+        public static Eng_Vector2D Normalize(Eng_Vector2D a)
         {
             double length = 0;
             length = Math.Sqrt((a.X * a.X)+(a.Y * a.Y));
             Eng_Vector2D normalize = new Eng_Vector2D();
             normalize.X = (a.X / length);
             normalize.Y = (a.Y / length);
+            return normalize;
 	    }//end of Normalize
         #endregion
 
@@ -121,18 +122,16 @@ namespace Engine.Mathematics
 	//3.d - Equality of two 2D vectors.
 	public static bool operator ==(Eng_Vector2D a, Eng_Vector2D b)
         {
-            if (a != b)
+            if (a.X != b.X && a.Y == b.Y || a.X == b.X && a.Y != b.Y || a.X != b.X && a.Y != b.Y)
                 return false;
-            else
             return true;
         }//eom	 
 
         //3.e - Inequality of two 2D vectors
         public static bool operator !=(Eng_Vector2D a, Eng_Vector2D b)
         {
-            if (a == b)
+            if (a.X == b.X && a.Y == b.Y)
                 return false;
-            else
             return true;
         }//eom
         #endregion

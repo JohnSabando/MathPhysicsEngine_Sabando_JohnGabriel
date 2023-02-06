@@ -32,7 +32,7 @@ namespace Engine.Mathematics
         }
         #region Class Methods
         //2.a - Magnitude of a 3D vector; DO NOT use Math.Pow()
-        public double Magnitude(double value1, double value2, double value3)
+        public static double Magnitude(double value1, double value2, double value3)
         {
             double magnitude;
             magnitude = Math.Sqrt((value1 * value1) + (value2 * value2) + (value3 * value3));
@@ -40,7 +40,7 @@ namespace Engine.Mathematics
         }//end of Magnitude
 
         //2.b - Calculate the Dot Product of two 3D vectors.
-        public double DotProduct(Eng_Vector3D b, Eng_Vector3D a)
+        public static double DotProduct(Eng_Vector3D b, Eng_Vector3D a)
         {
             double product = 0;
             product = (a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z);
@@ -49,7 +49,7 @@ namespace Engine.Mathematics
 
         //2.c – Calculate the angle between two 3D vectors.
         //      [MUST use the Functions.ToDegrees() method to return the angle in degrees]
-        public double AngleBetweenVectors(Eng_Vector3D b, Eng_Vector3D a)
+        public static double AngleBetweenVectors(Eng_Vector3D b, Eng_Vector3D a)
         {
             double angle, product, magnitude;
             product = (a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z);
@@ -59,7 +59,7 @@ namespace Engine.Mathematics
         }//end of AngleBetweenVectors
 		
         //2.d – Normalize a 3D vector.
-        public void Normalize(Eng_Vector3D a)
+        public static Eng_Vector3D Normalize(Eng_Vector3D a)
         {
             double length = 0;
             length = Math.Sqrt((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z));
@@ -67,6 +67,7 @@ namespace Engine.Mathematics
             normalize.X = (a.X / length);
             normalize.Y = (a.Y / length);
             normalize.Z = (a.Z / length);
+            return normalize;
         }//end of Normalize
         #endregion
 
@@ -128,19 +129,17 @@ namespace Engine.Mathematics
 	//3.d - Equality of two 3D vectors
 	public static bool operator ==(Eng_Vector3D a, Eng_Vector3D b)
         {
-            if (a != b)
+            if (a.X != b.X && a.Y != b.Y && a.Z != b.Z || a.X != b.X && a.Y == b.Y && a.Z == b.Z|| a.X == b.X && a.Y != b.Y && a.Z == b.Z || a.X == b.X && a.Y == b.Y && a.Z != b.Z)
                 return false;
-            else
-                return true;
+            return true;
         }//eom
 
 	//3.e - Inequality of two 3D vectors
         public static bool operator !=(Eng_Vector3D a, Eng_Vector3D b)
         {
-            if (a == b)
+            if (a.X == b.X && a.Y == b.Y && a.Z == b.Z)
                 return false;
-            else
-                return true;
+            return true;
         }//eom
 
 	//3.f - Calculate the Cross Product of two 3D vectors.
