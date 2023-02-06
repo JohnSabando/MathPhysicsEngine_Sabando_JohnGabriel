@@ -32,54 +32,53 @@ namespace Engine.Mathematics
         }
         #region Class Methods
         //2.a - Magnitude of a 3D vector; DO NOT use Math.Pow()
-        public static double Magnitude(double value1, double value2, double value3)
+        public double Magnitude()
         {
             double magnitude;
-            magnitude = Math.Sqrt((value1 * value1) + (value2 * value2) + (value3 * value3));
+            magnitude = Math.Sqrt((X * X) + (Y * Y) + (Z * Z));
             return magnitude;
         }//end of Magnitude
 
         //2.b - Calculate the Dot Product of two 3D vectors.
-        public static double DotProduct(Eng_Vector3D b, Eng_Vector3D a)
+        public double DotProduct(Eng_Vector3D b)
         {
             double product = 0;
-            product = (a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z);
+            product = (X * b.X) + (Y * b.Y) + (Z * b.Z);
             return product;
         }//end of DotProduct
 
         //2.c – Calculate the angle between two 3D vectors.
         //      [MUST use the Functions.ToDegrees() method to return the angle in degrees]
-        public static double AngleBetweenVectors(Eng_Vector3D b, Eng_Vector3D a)
+        public double AngleBetweenVectors(Eng_Vector3D b)
         {
             double angle, product, magnitude;
-            product = (a.X * b.X) + (a.Y * b.Y) + (a.Z * b.Z);
-            magnitude = Math.Sqrt((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z)) * Math.Sqrt((b.X * b.X) + (b.Y * b.Y) + (b.Z * b.Z));
+            product = (X * b.X) + (Y * b.Y) + (Z * b.Z);
+            magnitude = Math.Sqrt((X * X) + (Y * Y) + (Z * Z)) * Math.Sqrt((b.X * b.X) + (b.Y * b.Y) + (b.Z * b.Z));
             angle = Math.Acos(product / magnitude);
             return Functions.ToDegrees(angle);
         }//end of AngleBetweenVectors
-		
+
         //2.d – Normalize a 3D vector.
-        public static Eng_Vector3D Normalize(Eng_Vector3D a)
+        public void Normalize()
         {
-            double length = 0;
-            length = Math.Sqrt((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z));
-            Eng_Vector3D normalize = new Eng_Vector3D();
-            normalize.X = (a.X / length);
-            normalize.Y = (a.Y / length);
-            normalize.Z = (a.Z / length);
-            return normalize;
+            double length;
+            length = Math.Sqrt((X * X) + (Y * Y) + (Z * Z));
+            X /= length;
+            Y /= length;
+            Z /= length;
+            return;
         }//end of Normalize
         #endregion
 
         #region Overload Operators
         #region Complier Warning Fix
         // the following two methods are to remove the CS0660 and CS0661 compiler warnings
-        #pragma warning restore CS8765 // Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
+#pragma warning restore CS8765 // Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
         public override bool Equals(object obj)
         {
             return true;
         }//eom
-	#pragma warning restore CS8765 // Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
+#pragma warning restore CS8765 // Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
         public override int GetHashCode()
         {
             return 0;
@@ -87,16 +86,16 @@ namespace Engine.Mathematics
         #endregion
         //Complete the following overload operators
         //3.a - Adding two 3D Vectors.
-	    public static Eng_Vector3D operator +(Eng_Vector3D a, Eng_Vector3D b)
+        public static Eng_Vector3D operator +(Eng_Vector3D a, Eng_Vector3D b)
         {
             Eng_Vector3D result = new Eng_Vector3D();
             result.X = a.X + b.X;
             result.Y = a.Y + b.Y;
-            result.Z= a.Z + b.Z;
+            result.Z = a.Z + b.Z;
             return result;
         }//eom
 
-	//3.b - Subtracting two 3D Vectors.
+        //3.b - Subtracting two 3D Vectors.
         public static Eng_Vector3D operator -(Eng_Vector3D a, Eng_Vector3D b)
         {
             Eng_Vector3D result = new Eng_Vector3D();
@@ -107,7 +106,7 @@ namespace Engine.Mathematics
         }//eom
 
         //3.c.1 - Multiplying a 3D vector by a scalar (s * v)
-	public static Eng_Vector3D operator *(double s, Eng_Vector3D v)
+        public static Eng_Vector3D operator *(double s, Eng_Vector3D v)
         {
             Eng_Vector3D result = new Eng_Vector3D();
             result.X = s * v.X;
@@ -117,7 +116,7 @@ namespace Engine.Mathematics
         }//eom
 
         //3.c.2 - Multiplying a 3D vector by a scalar (v * s)
-	public static Eng_Vector3D operator *(Eng_Vector3D v, double s)
+        public static Eng_Vector3D operator *(Eng_Vector3D v, double s)
         {
             Eng_Vector3D result = new Eng_Vector3D();
             result.X = v.X * s;
@@ -125,16 +124,16 @@ namespace Engine.Mathematics
             result.Z = v.Z * s;
             return result;
         }//eom
-	
-	//3.d - Equality of two 3D vectors
-	public static bool operator ==(Eng_Vector3D a, Eng_Vector3D b)
+
+        //3.d - Equality of two 3D vectors
+        public static bool operator ==(Eng_Vector3D a, Eng_Vector3D b)
         {
-            if (a.X != b.X && a.Y != b.Y && a.Z != b.Z || a.X != b.X && a.Y == b.Y && a.Z == b.Z|| a.X == b.X && a.Y != b.Y && a.Z == b.Z || a.X == b.X && a.Y == b.Y && a.Z != b.Z)
+            if (a.X != b.X && a.Y != b.Y && a.Z != b.Z || a.X != b.X && a.Y == b.Y && a.Z == b.Z || a.X == b.X && a.Y != b.Y && a.Z == b.Z || a.X == b.X && a.Y == b.Y && a.Z != b.Z)
                 return false;
             return true;
         }//eom
 
-	//3.e - Inequality of two 3D vectors
+        //3.e - Inequality of two 3D vectors
         public static bool operator !=(Eng_Vector3D a, Eng_Vector3D b)
         {
             if (a.X == b.X && a.Y == b.Y && a.Z == b.Z)
@@ -142,7 +141,7 @@ namespace Engine.Mathematics
             return true;
         }//eom
 
-	//3.f - Calculate the Cross Product of two 3D vectors.
+        //3.f - Calculate the Cross Product of two 3D vectors.
         public static Eng_Vector3D operator *(Eng_Vector3D a, Eng_Vector3D b)
         {
             Eng_Vector3D result = new Eng_Vector3D();

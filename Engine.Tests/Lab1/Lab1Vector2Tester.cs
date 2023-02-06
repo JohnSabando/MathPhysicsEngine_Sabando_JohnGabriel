@@ -35,7 +35,7 @@ namespace Engine.Tests.Lab1
             // Create Object(s) for the test
             Eng_Vector2D a = new Eng_Vector2D(x, y);
             // Perform the test
-            double actual = Eng_Vector2D.Magnitude(x, y);
+            double actual = a.Magnitude();
             // Assert
             Assert.AreEqual(expected, Math.Round(actual, 4));
         }//end of TestMagnitude
@@ -54,12 +54,12 @@ namespace Engine.Tests.Lab1
         public void TestDotProduct(double ax, double ay, double bx, double by, double expected)
         {
             // Create Object(s) for the test
-            Eng_Vector2D a = new Eng_Vector2D(ax,ay);
+            Eng_Vector2D a = new Eng_Vector2D(ax, ay);
             Eng_Vector2D b = new Eng_Vector2D(bx, by);
             // Perform the test
-            double actual = Eng_Vector2D.DotProduct(b,a);
+            double actual = a.DotProduct(b);
             // Assert
-            Assert.AreEqual(expected, Math.Round(actual,4));
+            Assert.AreEqual(expected, Math.Round(actual, 4));
         }//end of TestDotProduct
 
         //4.c - Test 2.c - The angle between two 2D vectors.
@@ -79,13 +79,13 @@ namespace Engine.Tests.Lab1
             Eng_Vector2D a = new Eng_Vector2D(ax, ay);
             Eng_Vector2D b = new Eng_Vector2D(bx, by);
             // Perform the test
-            double actual = Eng_Vector2D.AngleBetweenVectors(b,a);
+            double actual = a.AngleBetweenVectors(b);
             // Assert - did we get back the correct answer
-            Assert.AreEqual(expected, Math.Round(actual,4));
+            Assert.AreEqual(expected, Math.Round(actual, 4));
         }//end of TestAngleBetweenVectors
 
         //4.d - Test 2.d - To Normalize a 2D vector.
-        [Test, 
+        [Test,
         // 1st = vector x component
         // 2nd = vector y component
         // 3rd = expected x component
@@ -98,16 +98,16 @@ namespace Engine.Tests.Lab1
         public void TestNormalize(double aX, double aY, double expectedX, double expectedY)
         {
             // Create Object(s) for the test
-            Eng_Vector2D a = new Eng_Vector2D(aX, aY);
+            Eng_Vector2D actual = new Eng_Vector2D(aX, aY);
             // Call the class method
-            Eng_Vector2D actual = Eng_Vector2D.Normalize(a);
+            Eng_Vector2D expected = new Eng_Vector2D(expectedX, expectedY);
             // Assert
-           Assert.AreEqual(expectedX, Math.Round(actual.X,4));
-           Assert.AreEqual(expectedY, Math.Round(actual.Y,4));
+            Assert.AreEqual(expectedX, Math.Round(actual.X, 4));
+            Assert.AreEqual(expectedY, Math.Round(actual.Y, 4));
         }//end of TestNormalize
 
         //4.e - Test 3.a - Adding two 2D vectors.
-	//    - Test 3.b - Subtracting two 2D vectors.
+        //    - Test 3.b - Subtracting two 2D vectors.
         [Test,
             // 1st = vector a x component
             // 2nd = vector a y component
@@ -123,7 +123,7 @@ namespace Engine.Tests.Lab1
             TestCase(9, 10, 6, -3, 15, 7, 3, 13)
         ]
         public void TestAddSubtract(
-            double aX, double aY, double bX, double bY, 
+            double aX, double aY, double bX, double bY,
             double expectedAddX, double expectedAddY, double expectedSubX, double expectedSubY)
         {
             // Create Object(s) for the test
@@ -157,12 +157,12 @@ namespace Engine.Tests.Lab1
             // Perform the test; test both (s * v) and (v * s)
             Eng_Vector2D actual = a * s;
             // Assert
-           Assert.AreEqual(expectedX, Math.Round(actual.X,4));
-           Assert.AreEqual(expectedY, Math.Round(actual.Y,4));
+            Assert.AreEqual(expectedX, Math.Round(actual.X, 4));
+            Assert.AreEqual(expectedY, Math.Round(actual.Y, 4));
         }//end of TestScale
 
         //4.g - Test 3.d - Equality of two 2D vectors.
-	    //    - Test 3.e - Inequality of two 2D vectors.
+        //    - Test 3.e - Inequality of two 2D vectors.
         [Test,
             // 1st - 2nd = vector a
             // 3rd - 4th = vector b

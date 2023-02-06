@@ -34,9 +34,9 @@ namespace Engine.Tests.Lab1
             // Create Object(s) for the test
             Eng_Vector3D a = new Eng_Vector3D(x, y, z);
             // Perform the test
-            double actual = Eng_Vector3D.Magnitude(x, y, z);
+            double actual = a.Magnitude();
             // Assert
-            Assert.AreEqual(expected, Math.Round(actual,4));
+            Assert.AreEqual(expected, Math.Round(actual, 4));
         }//end of TestMagnitude
 
         //4.b - Test 2.b - Calculate the Dot Product of two 3D vectors.
@@ -46,7 +46,7 @@ namespace Engine.Tests.Lab1
             // 7th = expected dot product
             // Instructor Data - MUST NOT DELETE OR MODIFY
             TestCase(3, -4, 8, -2, 5, 4, 6),
-             // Student Data - MUST CHANGE
+            // Student Data - MUST CHANGE
             TestCase(4, 5, 6, 7, 5, 4, 77)
         ]
 
@@ -56,7 +56,7 @@ namespace Engine.Tests.Lab1
             Eng_Vector3D a = new Eng_Vector3D(ax, ay, az);
             Eng_Vector3D b = new Eng_Vector3D(bx, by, bz);
             // Perform the test
-            double actual = Eng_Vector3D.DotProduct(b, a);
+            double actual = a.DotProduct(b);
             // Assert
             Assert.AreEqual(expected, actual);
         }//end of TestDotProduct
@@ -78,9 +78,9 @@ namespace Engine.Tests.Lab1
             Eng_Vector3D a = new Eng_Vector3D(ax, ay, az);
             Eng_Vector3D b = new Eng_Vector3D(bx, by, bz);
             // Perform the test
-            double actual = Eng_Vector3D.AngleBetweenVectors(b, a);
+            double actual = a.AngleBetweenVectors(b);
             // Assert
-            Assert.AreEqual(expected, Math.Round(actual,4));
+            Assert.AreEqual(expected, Math.Round(actual, 4));
         }//end of TestAngleBetweenVectors
 
         //4.d - Test 2.d - Normalize a 3D vector.
@@ -99,44 +99,44 @@ namespace Engine.Tests.Lab1
         public void TestNormalize(double vX, double vY, double vZ, double expectedX, double expectedY, double expectedZ)
         {
             // Create object(s) for the test
-            Eng_Vector3D v = new Eng_Vector3D(vX, vY, vZ);
+            Eng_Vector3D actual = new Eng_Vector3D(vX, vY, vZ);
             // Perform the test
-            Eng_Vector3D actual = Eng_Vector3D.Normalize(v);
+            Eng_Vector3D expected = new Eng_Vector3D(expectedX, expectedY, expectedZ);
             // Assert
-            Assert.AreEqual(expectedX, Math.Round(actual.X,4));
+            Assert.AreEqual(expectedX, Math.Round(actual.X, 4));
             Assert.AreEqual(expectedY, Math.Round(actual.Y, 4));
             Assert.AreEqual(expectedZ, Math.Round(actual.Z, 4));
         }//end of TestNormalize
 
         //4.e - Test 3.a - Adding two 3D vectors.
-	//    - Test 3.b - Subtracting two 3D vectors.
-       [Test,
-            //  1st = vector a x component
-            //  2nd = vector a y component
-            //  3rd = vector a z component
-            //  4th = vector b x component
-            //  5th = vector b y component
-            //  6th = vector b z component
-            //  7th = expected a+b x component
-            //  8th = expected a+b y component
-            //  9th = expected a+b z component
-            // 10th = expected a-b x component
-            // 11th = expected a-b y component
-            // 12th = expected a-b z component
-            // Instructor Data - MUST NOT DELETE OR MODIFY
-            TestCase(3, 4,-6, 6, -9, 4, 9, -5, -2, -3, 13, -10),
-            // Student Data - MUST CHANGE
-            TestCase(4, 5,7, 8, -4, -6, 12, 1, 1, -4, 9, 13)
-        ]
+        //    - Test 3.b - Subtracting two 3D vectors.
+        [Test,
+             //  1st = vector a x component
+             //  2nd = vector a y component
+             //  3rd = vector a z component
+             //  4th = vector b x component
+             //  5th = vector b y component
+             //  6th = vector b z component
+             //  7th = expected a+b x component
+             //  8th = expected a+b y component
+             //  9th = expected a+b z component
+             // 10th = expected a-b x component
+             // 11th = expected a-b y component
+             // 12th = expected a-b z component
+             // Instructor Data - MUST NOT DELETE OR MODIFY
+             TestCase(3, 4, -6, 6, -9, 4, 9, -5, -2, -3, 13, -10),
+             // Student Data - MUST CHANGE
+             TestCase(4, 5, 7, 8, -4, -6, 12, 1, 1, -4, 9, 13)
+         ]
         public void TestAddsubtract(
-            double aX, double aY, double aZ, double bX, double bY, double bZ,
-            double expectedAddX, double expectedAddY, double expectedAddZ,
-            double expectedSubX, double expectedSubY, double expectedSubZ
-            )
+             double aX, double aY, double aZ, double bX, double bY, double bZ,
+             double expectedAddX, double expectedAddY, double expectedAddZ,
+             double expectedSubX, double expectedSubY, double expectedSubZ
+             )
         {
             // Create Object(s) for the the test
-            Eng_Vector3D a= new Eng_Vector3D(aX, aY, aZ);
-            Eng_Vector3D b= new Eng_Vector3D(bX, bY, bZ);
+            Eng_Vector3D a = new Eng_Vector3D(aX, aY, aZ);
+            Eng_Vector3D b = new Eng_Vector3D(bX, bY, bZ);
             // Perform the test
             Eng_Vector3D actual = a + b;
             Eng_Vector3D actual2 = a - b;
@@ -173,7 +173,7 @@ namespace Engine.Tests.Lab1
         }//end of TestScale
 
         //4.g - Test 3.d - Equality of two 3D vectors.
-	    //    - Test 3.e - Inequality of two 3D vectors.
+        //    - Test 3.e - Inequality of two 3D vectors.
         [Test,
              // 1st - 3rd = vector a
              // 4th - 6th = vector b
@@ -188,9 +188,9 @@ namespace Engine.Tests.Lab1
         public void TestEquality(double aX, double aY, double aZ, double bX, double bY, double bZ, double cX, double cY, double cZ, bool expected)
         {
             // Create Object(s) for the test
-            Eng_Vector3D a = new Eng_Vector3D(aX , aY, aZ);
-            Eng_Vector3D b = new Eng_Vector3D(bX , bY , bZ);
-            Eng_Vector3D c = new Eng_Vector3D(cX , cY , cZ);
+            Eng_Vector3D a = new Eng_Vector3D(aX, aY, aZ);
+            Eng_Vector3D b = new Eng_Vector3D(bX, bY, bZ);
+            Eng_Vector3D c = new Eng_Vector3D(cX, cY, cZ);
             // Perform test
             bool actual = a == b;
             bool actual2 = b != c;
